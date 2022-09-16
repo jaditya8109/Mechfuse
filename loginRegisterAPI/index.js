@@ -22,16 +22,16 @@ app.get("/", (req, res)=>{
 })
 
 app.post("/register", async (req,res)=>{
-    const newUser =  new User({
-        username: req.body.username,
-        password: req.body.password
-    });
-
     try{
+        const newUser =  new User({
+            username: req.body.username,
+            password: req.body.password
+        });
         const user = await newUser.save();
         res.status(200).json(user);
     }catch(err){
         res.status(500).json(err);
+        console.log(err);
     }
 });
 
@@ -47,6 +47,7 @@ app.post("/login", async(req,res)=>{
 
     }catch(err){
         res.status(500).json(err);
+        console.log(err)
     }
 });
 
