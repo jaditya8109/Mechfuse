@@ -20,13 +20,10 @@ function App() {
     <Router>
       <NewsContextProvider>
       <Routes>  
-        <Route exact path="/" element={user ? <News/> : <Login/>} >
-        </Route>
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login/>}>
-        </Route>
-        <Route path="/register" element={user ? <Navigate to="/" /> : <Register/>}>
-          
-        </Route>
+        <Route exact path="/" element={user ? <News/> : <Login/>} ></Route>
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login/>}></Route>
+        <Route path="/register" element={user ? <Navigate to="/" /> : <Register/>}></Route>
+        <Route path="/logout" element={ <Navigate to="/" />  }></Route>
       </Routes>
       </NewsContextProvider>
     </Router>

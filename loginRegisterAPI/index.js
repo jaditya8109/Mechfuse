@@ -51,6 +51,15 @@ app.post("/login", async(req,res)=>{
     }
 });
 
+app.get("/logout", async (req,res)=>{
+    await res.cookie('user', 'none', {
+        expires: new Date(Date.now() + 1 * 1000),
+        httpOnly: true,
+    })
+
+    res.status(200).json({ success: true, message: 'User logged out successfully' })
+})
+
 app.listen(8800, ()=> {
     console.log("backend server running");
 } );
